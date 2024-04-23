@@ -1,20 +1,17 @@
-name: Deploy to Heroku
+name: Deploy
 
 on:
   push:
     branches:
-      - main  # Déclencher le déploiement lorsque vous poussez sur la branche principale. Vous pouvez ajouter d'autres branches si nécessaire.
+      - master
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.13.15 # This is the action
         with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "myquizzz"
+          heroku_email: "reda.wannis.anouar@gmail.com"
