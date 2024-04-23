@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "start:dev": "dotenv --dotenv .env.development node server.js",
-    "start:prod": "if \"%NODE_ENV%\" == \"production\" ( node -r dotenv/config server.js ) else ( node -r dotenv/config server.js dotenv_config_path=./environments/.env.production )",  
+    "start:prod": "node -r dotenv/config server.js",  
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
